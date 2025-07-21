@@ -1,0 +1,7 @@
+Operator->>MES_UI: Изменить статус
+MES_UI->>MES_API: Изменить статус
+MES_API->>MES_DB: Обновить БД
+MES_DB-->>MES_API: Успех
+MES_API->>Cache: Инвалидировать кеш
+MES_API-->>MES_UI: Подтверждение
+MES_UI-->>Operator: Подтверждение

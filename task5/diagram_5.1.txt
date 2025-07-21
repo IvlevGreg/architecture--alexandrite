@@ -1,0 +1,10 @@
+Operator->>MES_UI: Запрос списка
+MES_UI->>MES_API: Запрос списка
+%% Проверка кеша
+MES_API->>Cache: Проверка кеша
+Cache-->>MES_API: Кеш отсутствует
+MES_API->>MES_DB: Запрос в БД
+MES_DB-->>MES_API: Данные
+MES_API->>Cache: Сохранить
+MES_API-->>MES_UI: Вернуть данные
+MES_UI-->>Operator: Вернуть данные
